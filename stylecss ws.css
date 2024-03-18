@@ -35,30 +35,25 @@ header {
 .image-container {
     display: grid;
             grid-template-columns: repeat(3, 1fr); /* 每行六列，每列平均分配剩余空间 */
-            gap: 7px; /* 图片之间的间距 */
+            gap: 10px; /* 图片之间的间距 */
             justify-content: center; /* 图片水平居中 */
             user-select: none;
+            
             
 }
 
 .image-container img {
     border-radius: 25px;
-    width: 450px; 
-    height: 270px; 
-    margin: 35px; 
+    width: 80%; 
+    height: 70%; 
+    margin: 10%; 
     transition: transform 0.3s ease;
     user-select:none
     
     
 }
 
-.image-warpper{
-    border-radius: 25px;
-    width: 450px; 
-    height: 270px; 
-    margin: 35px; 
 
-}
 .image-container img:hover {
     transform: scale(1.05); /* 在鼠标悬停时放大图片 */
 }
@@ -95,18 +90,7 @@ main{
     position: relative; 
 }
 
-.image-text {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
-}
+
 
 .week2:hover .image-text {
     opacity: 1; /* 鼠标悬停时显示文字 */
@@ -117,19 +101,7 @@ main{
     position: relative; 
 }
 
-.image-text {
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
-    user-select: none;
-}
+
 
 .week3:hover .image-text {
     opacity: 1; /* 鼠标悬停时显示文字 */
