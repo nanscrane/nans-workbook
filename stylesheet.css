@@ -1,24 +1,122 @@
-.custom-font {
-    font-family: Arial, sans-serif;
-    color: antiquewhite;
-}
 
-#custom-position {
-    position: relative;
-    top: 20px;
-    left: 50px;
-
-}
 body {
     min-height: 100vh;
     max-width: 100vw;
-    background-image: url("中国国家博物馆新馆模型2.jpg");
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
     text-align: center;
-    <u1 style="color: aliceblue;"></u1>
 }
-img{
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h1 {
+    margin-left: 40px; 
+}
+
+
+.links {
+    display: flex;
+    margin-right: 10px;
+}
+
+.links h3 {
+    margin-right: 30px; 
+}
+
+.container{
+    margin-top: 2%;
+    position: relative;
+    text-align: center;
+    color: aliceblue;
     
 }
-header {
-    margin-top: 30%;
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main {
+    margin-top: 5%;
+}
+
+.cube {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    margin: 0 auto;
+}
+
+.face {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front { transform: translateZ(200px); }
+.back { transform: rotateY(180deg) translateZ(200px); }
+.left { transform: rotateY(-90deg) translateZ(200px); }
+.right { transform: rotateY(90deg) translateZ(200px); }
+.top { transform: rotateX(90deg) translateZ(200px); }
+.bottom { transform: rotateX(-90deg) translateZ(200px); }
+
+.content {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    user-select: none;
+}
+
+
+
+
+footer{
+    margin-top: 38%;
+    user-select: none;
+}
+
+
+.front, .back, .left, .right, .top, .bottom {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+
+.front { background-color: #fff; }
+.back { background-color: #ccc; }
+.left { background-color: #ddd; }
+.right { background-color: #eee; }
+.top { background-color: #aaa; }
+.bottom { background-color: #bbb; }
+
+a:hover{
+    transform: scale(1.05)
 }
