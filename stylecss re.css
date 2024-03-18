@@ -1,0 +1,148 @@
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+
+
+header {
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h1 {
+    margin-left: 40px; 
+}
+
+
+.links {
+    display: flex;
+    margin-right: 1%;
+}
+
+.links h3 {
+    margin-right: 30px; 
+}
+
+main{
+    margin-top: 5%;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  .container {
+    position: relative;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    margin: auto;
+   
+  }
+  
+  
+  .mySlides {
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    }
+  
+  
+  .cursor {
+    cursor: pointer;
+     }
+  
+  
+  
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  
+  .prev{
+    left: 0;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+ 
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  
+  .caption-container {
+    width: 50.1%;
+    height: 5%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+
+  main{
+    user-select: none;
+    height: 80vh;
+  }
+  .row{
+    width: 50.1%;
+    height: 5%;
+    margin: auto;
+  }
+  .demo cursor img{
+    height: 10%;
+  }
+
+.column {
+    width: 16.66%; 
+    float: left;
+    height: 200%; 
+}
+
+.column img {
+    height: 100%; 
+}
+
+a:hover{
+    transform: scale(1.05)
+}
+
+footer{
+    margin-top: 6%;
+}
+  
