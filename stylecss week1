@@ -1,0 +1,9 @@
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}

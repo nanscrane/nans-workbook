@@ -7,7 +7,15 @@ body {
     background-position: 100%;
     background-repeat: no-repeat;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-size: large;
+    cursor: url(./dreambox\ cursor.png), auto;
 }
+
+
+
+.a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 
 
 
@@ -24,7 +32,7 @@ header {
 
 .links {
     display: flex;
-    margin-right: 10px;
+    margin-right: 1%;
 }
 
 .links h3 {
@@ -110,13 +118,15 @@ footer{
 }
 
 
-.front { background-color: #fff; }
-.back { background-color: #ccc; }
-.left { background-color: #ddd; }
-.right { background-color: #eee; }
-.top { background-color: #aaa; }
-.bottom { background-color: #bbb; }
+.front {  background-image:linear-gradient(to bottom right, #FBA9A9, #6CDCF8 );}
+.back { background-image: linear-gradient(to bottom right, #86C6FB, #B292CF ); }
+.left { background-image: linear-gradient(to bottom right, #B88BF7, #FF9A9A ); }
+.right { background-image: linear-gradient(to bottom right, #9EFFED, #9EB9FF ); }
+.top { background-image: linear-gradient(to bottom right, #CC95FF, #C0F458 ); }
+.bottom { background-image: linear-gradient(to bottom right, #FBBC79, #85F1FC ); }
+
 
 a:hover{
     transform: scale(1.05)
 }
+

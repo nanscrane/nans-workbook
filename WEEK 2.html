@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WEEK 2</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="stylecss week1.css">
+<link rel="icon" type="image/x-icon" href="./dreambox.png">
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.custom-button {
+        position: absolute;
+        top: 3%;
+        left:3%;
+        background-color: #ccc; 
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        
+    }
+   
+    .custom-button:active {
+        background-color: #0C668D; 
+    }
+
+    .custom-button:hover {
+        background-color: #0C668D; 
+    }
+
+
+.header {
+  background-color: #FEDCB6;
+  padding: 2%;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+.row {
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+.column {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+  height: 120vh; 
+  text-align: center;
+}
+
+
+.footer {
+  background-color:#FEDCB6;
+  padding: 0.5%;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <button class="custom-button"><a href="https://nanscrane.github.io/nans-workbook/week%20schedule.html" style="text-decoration: none; color: #3F3F37;">To Weekly Schedule</a></button>
+  <h2>WEEK 2</h2>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#FDCE99;">
+    <h2 style="font-size: 20px;">Week2 activity 1：paper prototyping</h2>
+    <img src="./crazy8.jpg" width="85%" height=auto>
+    <h3 style="font-size: 18px">Crazy 8's</h3>
+    <p>"Eight ninmutes to think quickly about web layout."</p>
+    
+ </div>
+  <div class="column" style="background-color:#EBAC64;">
+    <h2 style="font-size: 20px;">Week2 activity 2：“make it bling"</h2>
+    <img src="./layout.jpg" width="85%" height=29%>
+    <img src="./layout3.jpg" width="85%" height=29%>
+    <h3 style="font-size: 18px">"Nanscrane's Dreambox"</h3>
+    <p style="text-align: justify;">Some sketches about the initial inspiration for the site. I wanted the whole site to be like a box full of stuff. Vistor can go to every part of the site, which looks like a web archive, through a box on the home page, and then read and interact with the content.</p>
+    
+   
+ </div>
+  <div class="column" style="background-color:#DE8827;">
+    <h2 style="font-size: 20px;">Week2 personal idea and problem</h2>
+    <h3 style="text-align: justify;margin-top: 10%; font-size: large;"> This week's challenge is to solve the problem of changing the layout of web pages on different devices, but this seems to be too difficult for me... Still a lot to learn.</h3>
+    <h3 style="text-align: justify;margin-top: 10%; font-size: large;"> Very good learning website: W3schools! I learned a lot!</h3>
+    <a href="https://www.w3schools.com/">Click me to the website</a>
+</div>
+</div>
+
+
+
+<div class="footer">
+  <p>@ nanscrane</p>
+</div>
+
+</body>
+</html>

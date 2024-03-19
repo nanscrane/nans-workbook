@@ -1,0 +1,41 @@
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-image: url(./background.png);
+    background-size: cover;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h1 {
+    margin-left: 40px; 
+}
+
+
+.links {
+    display: flex;
+    margin-right: 1%;
+}
+
+.links h3 {
+    margin-right: 30px; 
+}
+
+
+a:hover{
+    transform: scale(1.05)
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}

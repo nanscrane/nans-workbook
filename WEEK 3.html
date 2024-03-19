@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WEEK 3</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="stylecss week1.css">
+<link rel="icon" type="image/x-icon" href="./dreambox.png">
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.custom-button {
+        position: absolute;
+        top: 3%;
+        left:3%;
+        background-color: #ccc; 
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        
+    }
+   
+    .custom-button:active {
+        background-color: #0C668D; 
+    }
+
+    .custom-button:hover {
+        background-color: #0C668D; 
+    }
+
+
+.header {
+  background-color: #FBF2C4;
+  padding: 2%;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+.row {
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+.column {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 10px;
+  height: 120vh; 
+  text-align: center;
+}
+
+
+.footer {
+  background-color: #FBF2C4;
+  padding: 0.5%;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .row {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <button class="custom-button"><a href="https://nanscrane.github.io/nans-workbook/week%20schedule.html" style="text-decoration: none; color: #3F3F37; ">To Weekly Schedule</a></button>
+  <h2>WEEK 3</h2>
+</div>
+
+<div class="row">
+  <div class="column" style="background-color:#F9ECA8;">
+    <h2 style="font-size: 20px;">Week3 activity 1：fluid design with@ Media quries</h2>
+    <img src="./fliud.jpg" width="85%" height=85%>
+    <h3 style="font-size: 18px">First try of fluid media</h3>
+    <p>Change all px values to percentages to ensure page layout.</p>
+    
+ </div>
+  <div class="column" style="background-color:#F1D236 ;">
+    <h2 style="font-size: 20px;">Week3 activity 1：fluid design with@ Media quries </h2>
+    <img src="./fluid.jpg" width="85%" height=29%>
+    <h3 style="font-size: 18px">Sketch of website on mobile phone</h3>
+    <img src="./media query try.png" width="85%" height=29%>
+    <h3 style="font-size: 18px">Use @ Media quries to create website layout</h3>
+    <p style="text-align: justify;"> I'm trying to use media quries to make the web page fit perfectly in all browsers. This is the first time I try to use this code, I split the page into a header at the top and a footer at the bottom. The body section in the middle gives me three columns. Although there are a lot of restrictions on the elements in the columns, this ensures that the layout can be maintained in any browser. (I tested it on several different devices.)</p>
+    
+   
+ </div>
+  <div class="column" style="background-color:#D5B40F;">
+    <h2 style="font-size: 20px;">Week3 personal idea and problem</h2>
+    <h3 style="text-align: justify;margin-top: 10%; font-size: large;">This has been a really tough week, ever since I found out that the layout of this page changes on different devices. I asked some of my ux students and they gave me some very valuable advice, such as: changing some values set in px to percentage will help the web page not to deform. I am also gradually learning to use media query, and I hope I can find better options in the future to help my web pages adapt to every device, no matter mobile phone, ipad or computer.</h3>
+    <h3 style="text-align: justify;margin-top: 10%; font-size: large;"> Very good learning website: W3schools! I learned a lot!</h3>
+    <a href="https://www.w3schools.com/">Click me to the website</a>
+</div>
+</div>
+
+
+
+<div class="footer">
+  <p>@ nanscrane</p>
+</div>
+
+</body>
+</html>

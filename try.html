@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanscrane's Dreambox</title>
+    <style>
+        /* General styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+        }
+
+        header, main, footer {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444;
+            border: 1px solid #fff;
+        }
+
+        .face a {
+            text-decoration: none;
+            color: #E06A50;
+            font-size: 20px;
+        }
+
+        /* Media queries */
+        @media only screen and (max-width: 768px) {
+            .links {
+                flex-wrap: wrap;
+            }
+            .links a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="title">
+        <h1>Nanscrane's Dreambox</h1>
+    </div>
+    <div class="links">
+        <a href="https://nanscrane.github.io/nans-workbook/30008.html">Home</a>
+        <a href="https://canvas.lms.unimelb.edu.au/courses/195899/pages/weeks-1~12-overview?module_item_id=5623582">Intro</a>
+        <a href="#">Progress & Process</a>
+        <a href="#">Research</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week%20schedule.html">Weekly Schedule</a>
+        <a href="#">Experiment</a>
+        <a href="#">Fun Things</a>
+    </div>
+</header>
+
+<main>
+    <div class="title">
+        <h2>Welcome to Nanscrane's Dreambox</h2>
+        <p>It is a workbook for GDES30008 Interactive Media!</p>
+    </div>
+
+    <div class="content">
+        <div class="cube">
+            <div class="face front"><a href="#">INTRO</a></div>
+            <div class="face back">PROGRESS & PROCESS</div>
+            <div class="face left">RESEARCH</div>
+            <div class="face right"><a href="https://nanscrane.github.io/nans-workbook/week%20schedule.html">WEEKLY SCHEDULE</a></div>
+            <div class="face top">EXPERIMENT</div>
+            <div class="face bottom">FUN THINGS</div>
+            <script>
+                const cube = document.querySelector('.cube');
+
+                let initialX = 0;
+                let initialY = 0;
+                let isMouseDown = false;
+
+                document.addEventListener('mousedown', (e) => {
+                    initialX = e.clientX;
+                    initialY = e.clientY;
+                    isMouseDown = true;
+                });
+
+                document.addEventListener('mouseup', () => {
+                    isMouseDown = false;
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isMouseDown) return;
+                    const xDiff = e.clientX - initialX;
+                    const yDiff = e.clientY - initialY;
+
+                    cube.style.transform = `rotateY(${xDiff}deg) rotateX(${-yDiff}deg)`;
+                });
+            </script>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; Nanscrane</p>
+</footer>
+
+</body>
+</html>
