@@ -105,6 +105,8 @@ main{
   
   
   .caption-container {
+    display: flex;
+    align-items: center;
     width: 50.1%;
     height: 5%;
     margin: auto;
@@ -113,6 +115,12 @@ main{
     background-color: #222;
     padding: 2px 16px;
     color: white;
+    position: relative;
+  }
+
+  .p .container{
+    position: absolute;
+    text-align: center;
   }
 
   main{
