@@ -7,6 +7,9 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-size: large;
+    cursor: url(./dreambox\ cursor.png), auto;
 }
 
 
@@ -53,7 +56,7 @@ header {
 
 
 .image-container img:hover {
-    transform: scale(1.05); /* 在鼠标悬停时放大图片 */
+    transform: scale(1.05);
 }
 
 
@@ -80,7 +83,7 @@ main{
 }
 
 .week1:hover .image-text {
-    opacity: 1; /* 鼠标悬停时显示文字 */
+    opacity: 1;
 }
 
 
@@ -91,7 +94,7 @@ main{
 
 
 .week2:hover .image-text {
-    opacity: 1; /* 鼠标悬停时显示文字 */
+    opacity: 1;
 }
 
 
@@ -102,11 +105,11 @@ main{
 
 
 .week3:hover .image-text {
-    opacity: 1; /* 鼠标悬停时显示文字 */
+    opacity: 1;
 }
 
 a {
-    color: aliceblue; /* 默认文字颜色 */
+    color: aliceblue; 
 }
 a:hover{
     transform: scale(1.05)
