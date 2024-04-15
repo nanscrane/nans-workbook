@@ -3,127 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>p5.js Sketch</title>
+    <title>workbook2b</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <link rel="workbook2b stylesheet" href="workbook2b stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-        canvas {
-            display: block;
-        }
-        #sketch {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        #text-container {
-            position: absolute;
-            height: 50vh;
-            width: 50vw;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            user-select: none;
-            z-index: 2; 
-            text-align: center; /* 文字居中 */
-            white-space: nowrap;
-            display: flex; /* 使用 Flexbox 布局 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-        }
-        #class {
-            position: absolute;
-            width: 50vw;
-            height: 50vh;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0); 
-            backdrop-filter: blur(10px);
-            z-index: 1; 
-        }
-
-        h1 {
-            font-family: "Effort";
-            font-size: 7vw;
-            margin: 0; 
-            padding: 0; 
-            line-height: 1; 
-            width: 100%; 
-            text-align: center;
-            background-image: linear-gradient(135deg,#C0E43B,#32D77B,#5487FB,#AA4AFF);
-            background-size: 500%;
-            display: initial;
-            background-clip: text;
-            color: transparent;
-        }
-
-        #navbarButton{
-            position:fixed;
-            top: 0%;
-            left: 0%;
-            background-color: transparent;
-            border: none;
-            color: black;
-            padding: 12px 16px;
-            font-size: 40px;
-            cursor: pointer;
-            z-index: 2;
-            visibility: visible;
-        }
-        #navbarButton:hover {
-         background-color: #32D77B;
-
-        }
-
-        #navbar {
-            height: 100vh;
-            width: 0px; /* 导航栏宽度 */
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333; /* 导航栏背景颜色 */
-            overflow-x: hidden;
-            padding-top: 20%; /* 顶部内边距 */
-            text-align: center;
-            z-index: 2;
-        }
-
-        .navbar a {
-            padding: 10px 20px; /* 导航链接的内边距 */
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff; /* 导航链接文字颜色 */
-            display: block;
-            transition: 0.3s; /* 过渡效果 */
-        }
-
-        .navbar a:hover {
-            background-color: #555; /* 悬停时的背景颜色 */
-        }
-
-        /* 响应式设计 */
-        @media screen and (max-width: 768px) {
-            .navbar {
-                width: 100vw; /* 在较小的屏幕上，导航栏占满整个宽度 */
-                height: 100vh; /* 自动高度 */
-                position: relative;
-            }
-
-            .navbar a {
-                float: none; /* 将链接设置为块级元素 */
-                display: block;
-                text-align: left; /* 文本左对齐 */
-            }
-        } 
-        
-        
-
-    </style>
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
 </head>
 <body>
     
@@ -135,53 +19,36 @@
         <button onclick="toggleNavbar()" id="navbarButton" >
             <i class="fa fa-bars"></i>
         </button>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+       <a href="#home">Home</a>
+       <a href="#about">Week 4</a>
+       <a href="#services">Week 5</a>
+       <a href="#contact">Week 6</a>
     </div>
 
-    <script>
-        function openNavbar() {
-            document.getElementById("navbar").style.width = "250px";
-        }
+    <script src="Js workbook2b homepage.js"></script>
     
-        function closeNavbar() {
-            document.getElementById("navbar").style.width = "0";
-        }
-
-        function toggleNavbar() {
-        var navbar = document.getElementById("navbar");
-        if (navbar.style.width === "250px") {
-        navbar.style.width = "0";
-        }else {
-        navbar.style.width = "250px";
-        }
-
-        
-       
-}
-    </script>
     
-
     <div id="text-container">
         <h1>workbook 2B</h1>
     </div>
+    <div id="h2container"><h2>Start</h2></div>
     <div id="class"></div>
     <div id="sketch">
     <script>
         let spacing = 100;
-        let randomColor; // 声明变量，但不赋初始值
+        let randomColor; 
         let moveCounter = 0;
 
         function setup() {
             let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
             canvas.parent('sketch');
-            randomColor = color(random(256), random(256), random(256)); // 在 setup() 中给变量赋初始值
+            randomColor = color(random(256), random(256), random(256)); 
         }
 
         function draw() {
             background(255);
+            //that part referenced Benjamin Man's coding and do some change//
+            //https://github.com/benman604/benman604.github.io//
             for (let i = 0; i < width + 50; i += spacing + 50) {
                 for (let j = 0; j < height + 50; j += spacing + 50) {
                     push();
@@ -205,7 +72,7 @@
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);
         }
-        
+        //referenced stop//
         function mouseMoved() {
             moveCounter++;
             if (moveCounter === 15) {
