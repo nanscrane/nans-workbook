@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Effort";
+    src: url("Effort.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    overflow: hidden;
+    -webkit-box-reflect: below 1px linear-gradient(transparent,#0008);
+    animation: typing 8s steps(40) forwards, bgAnimation 8s linear infinite;
+}
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    30% {
+        width: 50vw;
+    }
+}
+
+@keyframes bgAnimation{
+    0% {
+         background-position: 0% 50%;
+     }
+    50% {
+         background-position: 100% 50%;
+     }
+    100% {
+         background-position: 0% 50%;
+     }
+    }
