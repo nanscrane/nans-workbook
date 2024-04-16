@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Graden</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+</head>
+<script>
+function setup(){
+    createCanvas(windowWidth, windowHeight);
+    background(230, 254, 162);
+}
+
+function draw(){
+    //noFill();
+    fill(mouseX/6,mouseY/4,120);
+    circle(mouseX,mouseY,100);
+}
+
+function mousePressed(){
+    stroke(mouseX / 6, mouseY / 4, 120); 
+    circle(mouseX, mouseY, 10);}
+</script>
+</html>
