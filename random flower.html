@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Graden</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+    <style>
+        @keyframes blink {
+          0% {
+            color: #F98F52; 
+          }
+          50% {
+            color: #5280F9; 
+          }
+          100% {
+            color: #F98F52; 
+          }
+        }
+        h1 {
+          position: absolute;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          animation: blink 1s infinite; 
+        }
+      </style>
+</head>
+
+<body style="position: relative;">
+    <h1 style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%);">Use keyboard to Create your Garden!!!</h1>
+    <script>
+        var pic1, pic2, pic3;
+        var randPiclx, randPicly;
+        var capture;
+
+        function preload() {
+            pic1 = loadImage('flower1.png'); 
+            pic2 = loadImage('flower2.png');
+            pic3 = loadImage('flower3.png');
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            background(230, 254, 162);
+            randPiclx = random(width - 300);
+            randPicly = random(height - 300);
+            imageMode(CENTER);
+            capture = createCapture(VIDEO);
+            capture.hide();
+        }
+
+        function draw() {
+            push();
+            image(capture, width / 2, height / 2, 640, 480);
+            filter(POSTERIZE, 10);
+            pop();
+        }
+
+        function keyPressed() {
+            randPiclx = random(width);
+            randPicly = random(height);
+
+            let randomImg = random([pic1, pic2, pic3]);
+            image(randomImg, randPiclx, randPicly, 300, 300);
+        }
+    </script>
+</body>
