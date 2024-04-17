@@ -6,6 +6,8 @@
     padding: 2%;
     text-align: center;
 }
+
+
 h2{ 
     font-family: "Effort";
     font-size: 2vw;
@@ -221,7 +223,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#FEE9A2 , #FB9535); 
+    background: linear-gradient(#E3C4FD , #FACF21); 
     filter: blur(20px); 
     z-index: -1; 
   }
@@ -235,4 +237,5 @@ a:visited {
 a:hover {
     color: #AA4AFF; 
 }
+
 
