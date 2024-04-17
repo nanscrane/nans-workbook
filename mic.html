@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Drawing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="p5.sound.min.js"></script>
+    <script language="javascript" type="text/javascript" src="mic_test.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+</head>
+<script>
+var mic;
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    background(230, 254, 162);
+    getAudioContext().suspend();
+    mic = new p5.AudioIn();
+    mic.start();
+    micLevel = mic.getLevel();
+    
+}
+
+function mousePressed() {
+   userStartAudio();
+}
+
+function draw(){
+  background(230, 254, 162,50);
+  micLevel=mic.getLevel();
+  scale=map(micLevel,0, 1.0,20, width);
+  fill(255,0,0);
+  circle(width/2, height/2,scale);
+}
+
+</script>
+</html>
