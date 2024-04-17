@@ -5,53 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>workbook2b</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <link rel="workbook2b stylesheet" href="workbook2b stylesheet.css">
+    <link rel="workbook2b stylesheet" href="stylesheet2b.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="./dreambox.png">
-    
 </head>
-
 <body>
+    
+    <button onclick="toggleNavbar()" id="navbarButton" >
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="navbar" id="navbar">
+        <button onclick="toggleNavbar()" id="navbarButton" >
+            <i class="fa fa-bars"></i>
+        </button>
+        <a href="https://nanscrane.github.io/nans-workbook/30008.html">project 2A</a>
+        <a href="https://nanscrane.github.io/nans-workbook/sketch.html">Home</a>
+        <a href="#about">Weekly Select</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week4.html">Week 4</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week5.html">Week 5</a>
+        <a href="#contact">Week 6</a>
+    </div>
+
+    <script src="Js workbook2b homepage.js"></script>
+    
+    
+    <div id="text-container">
+        <h1><a href="https://nanscrane.github.io/nans-workbook/week4.html">week 4</a></h1> 
+        <h1><a href="https://nanscrane.github.io/nans-workbook/week4.html"></a>week 5</h1><h1>week 6</h1>
+    </div>
+    
+    <div id="sketch">
     <script>
-    let circleColor, squareColor, triangleColor;
+        let spacing = 100;
+        let randomColor; 
+        let moveCounter = 0;
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  
-  circleColor = color(random(256), random(256), random(256));
-  squareColor = color(random(256), random(256), random(256));
-  triangleColor = color(random(256), random(256), random(256));
-  frameRate(3);
-}
+        function setup() {
+            let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+            canvas.parent('sketch');
+            randomColor = color(random(256), random(256), random(256)); 
+        }
 
-function draw() {
-  background(random(256), random(256), random(256),100);
-  noStroke();
-  fill(circleColor);
-  circle(width / 2, height / 1.5, 500);
-  
-  fill(squareColor);
-  square(width / 11, height / 3.5, 500); 
-  
-  fill(triangleColor);
-  triangle(0.8 * width, height / 9, 0.95 * width, 0.55 * height, 0.65 * width, 0.55 * height);
-  
-  textSize(40);
-  fill(255); // 设置文本颜色为白色
-  textAlign(CENTER, CENTER);
-  
-  text("WEEK 5",width / 2, height / 1.5);
-  text("WEEK 4",width / 5 , height / 2);
-  text("WEEK 6",0.8 * width, height / 2.5);
-}
+        function draw() {
+            background(255);
+            //that part referenced Benjamin Man's coding and do some change//
+            //https://github.com/benman604/benman604.github.io//
+            for (let i = 0; i < width + 50; i += spacing + 50) {
+                for (let j = 0; j < height + 50; j += spacing + 50) {
+                    push();
+                    let x = i - width / 2 + 10;
+                    let y = j - height / 2 + 10;
+                    translate(x, y, -10);
+                    let angle = atan2((mouseY - height / 2) - y, (mouseX - width / 2) - x);
+                    rotateX(angle);
+                    rotateY(angle);
+                    rotateZ(angle);
 
+                    let d = dist(i, j, mouseX, mouseY);
+                    let alpha = constrain(300-d,0,255);
+                    fill(red(randomColor), green(randomColor), blue(randomColor), alpha);
+                    box(min(spacing / 2 + 2000 / d, 100));
+                    pop();
+                }
+            }
+        }
 
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+        //referenced stop//
+        function mouseMoved() {
+            moveCounter++;
+            if (moveCounter === 15) {
+                randomColor = color(random(256), random(256), random(256));
+                moveCounter = 0;
+            }
+        }
 
-function mousePressed() {
-  
-  circleColor = color(random(256), random(256), random(256));
-  squareColor = color(random(256), random(256), random(256));
-  triangleColor = color(random(256), random(256), random(256));
-}
-</script>   
+    </script>
+    </div>
 </body>
+</html>
