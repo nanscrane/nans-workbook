@@ -76,15 +76,14 @@ p{
     
 }
 .text-window {
-    position: absolute; /* 设置绝对定位，以便窗口覆盖整个 column */
-    top: 0;
+    position: absolute; 
     right: 0;
     bottom: 0;
     width: 100%;
     height: 30vh;
     overflow-y: auto; 
-    background-color: #ffffff; /* 设置窗口背景色 */
-    border: 1px solid #cccccc; /* 添加边框 */
+    background-color: #ffffff; 
+    border: 1px solid #cccccc; 
 }
 
 .img-geo{
@@ -211,6 +210,8 @@ h1 {
 
   body {
     position: relative; 
+    cursor: url(./dreambox\ cursor.png), auto;
+    user-select: none;
   }
   
   body::before {
@@ -234,3 +235,4 @@ a:visited {
 a:hover {
     color: #AA4AFF; 
 }
+

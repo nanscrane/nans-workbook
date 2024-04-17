@@ -34,6 +34,8 @@ h1 {
     body {
         margin: 0;
         overflow: hidden;
+        cursor: url(./dreambox\ cursor.png), auto;
+        user-select: none;
     }
     canvas {
         display: block;
@@ -96,9 +98,16 @@ h1 {
         text-align: center; 
         }
 
-    h2:hover{
-        color: #F7AD2C;
-    }
+        
+        a:link,
+        a:visited {
+        color: inherit; 
+        text-decoration: none; 
+        }
+
+        a:hover {
+        color: #AA4AFF; 
+        }
 
     #navbarButton{
         position:fixed;

@@ -226,6 +226,8 @@ h1 {
 
   body {
     position: relative; 
+    cursor: url(./dreambox\ cursor.png), auto;
+    user-select: none;
   }
   
   body::before {

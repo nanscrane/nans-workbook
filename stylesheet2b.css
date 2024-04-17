@@ -90,14 +90,6 @@ h1 {
         text-align: center; 
         }
 
-    h2:hover{
-        color: #AA4AFF;
-    }
-
-    h1:hover{
-        color: #AA4AFF;
-    }
-
     #navbarButton{
         position:fixed;
         top: 0%;
