@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Graden</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+</head>
+<body>
+    <script>
+        
+var capture;
+
+function setup() {
+createCanvas(windowWidth, windowHeight);
+imageMode(CENTER);
+capture=createCapture(VIDEO);
+capture.size(640,480);
+//capture.hide();
+imageMode(CENTER);
+}
+
+
+function draw() {
+  image(capture,mouseX,mouseY);
+  if (!mouseIsPressed) {
+    filter(THRESHOLD);
+  } 
+}
+function mousePressed(){
+  image(capture,mouseX,mouseY);
+  filter(INVERT);
+}
+    </script>
+</body>
