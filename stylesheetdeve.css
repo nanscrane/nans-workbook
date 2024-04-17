@@ -1,0 +1,236 @@
+.container{
+    width: 80vw;
+    height: 10vh;
+    margin: auto;
+    padding: 0%;
+    padding: 2%;
+    text-align: center;
+}
+
+
+h2{ 
+    font-family: "Effort";
+    font-size: 2vw;
+    text-align: center;
+    margin-bottom: 0%;
+
+}
+h3{ 
+    font-family: "Effort";
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 0%;
+    
+
+}
+
+p{ 
+    font-family: "Effort";
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 5%;
+    margin-top: 10%;
+    text-transform: uppercase; 
+    line-height: 1.5; 
+    text-align: justify; 
+    text-align-last: left; 
+}
+.act1{
+    margin: auto;
+    margin-top: 1%;
+    width: 80vw;
+    height: 100vh;
+    padding: 1%;
+    flex-wrap: wrap; /* 添加这一行 */
+}
+.act2{
+    margin: auto;
+    margin-top: 1%;
+    width: 80vw;
+    height: 100vh;
+    padding: 1%;
+    flex-wrap: wrap; /* 添加这一行 */}
+
+    
+.act3{
+    margin: auto;
+    margin-top: 1%;
+    width: 80vw;
+    height: 50vh;
+    padding: 1%;
+    flex-wrap: wrap; 
+}
+
+.img-geo{
+    position: relative;
+    width: 90%;
+    max-width: 100%; 
+    height: auto;
+    display: flex;
+    justify-content: center; /* 将内容水平居中 */
+    align-items: center;
+    
+}
+.text-window {
+    position: absolute; 
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    overflow-y: auto; 
+    background-color: #ffffff; 
+    border: 1px solid #cccccc; 
+}
+
+.img-geo{
+    max-width: 100%; 
+    height: auto;
+    margin: auto;
+    
+}
+
+
+h1 {
+    font-family: "Effort";
+        font-size: 7vw;
+        margin: 0; 
+        padding: 0; 
+        line-height: 1; 
+        width: 80vw; 
+        
+        white-space: nowrap;
+        background-image: linear-gradient(135deg,#C0E43B,#32D77B,#5487FB,#AA4AFF);
+        overflow: hidden;
+        background-clip: text;
+        color: transparent;
+        animation: typing 8s steps(40) forwards;
+}
+@keyframes typing {
+    0% {
+        width: 0vw;
+    }
+    30% {
+        width: 80vw;
+    }
+}
+
+
+
+
+
+@font-face {
+    font-family: "Effort";
+    src: url("Effort.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#navbarButton{
+    position:fixed;
+    top: 0%;
+    left: 0%;
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 2;
+    visibility: visible;
+}
+#navbarButton:hover {
+ background-color: #32D77B;
+
+}
+
+#navbar {
+    height: 100vh;
+    width: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom,#5487FB,#AA4AFF );
+    overflow-x: hidden;
+    padding-top: 20%;
+    text-align: center;
+    z-index: 4;
+}
+
+.navbar a {
+    padding: 10px 20px; 
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff; 
+    font-family: "Effort";
+    display: block;
+    transition: 0.3s; 
+    user-select: none;
+}
+
+.navbar a:hover {
+    background-color: #32D77B;
+}
+
+.button2{
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    width: 150px; 
+    height: 50px; 
+    background-color: transparent; 
+    color: #fff; 
+    border: none; 
+    cursor: pointer; 
+    margin-bottom: 3%;
+    
+}
+.button {
+    font-family: "Effort";
+    text-transform: uppercase;
+    width: 150px; 
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #5487FB;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1;
+    
+  }
+
+  .button:hover {
+    background-color: #32D77B;
+  }
+  
+
+  body {
+    position: relative; 
+    cursor: url(./dreambox\ cursor.png), auto;
+    user-select: none;
+  }
+  
+  body::before {
+    content: ""; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    background: linear-gradient(#FCB6B6 , #A5FCEB); 
+    filter: blur(20px); 
+    z-index: -1; 
+  }
+
+  a:link,
+a:visited {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+a:hover {
+    color: #AA4AFF; 
+}
