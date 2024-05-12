@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week7</title>
+    <link rel="week7 stylesheet" href="week7 stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+    
+</head>
+
+<body>
+    <div class="navbar" id="myNavbar">
+        <a href="#">Home</a>
+        <a href="#">WEEK 7</a>
+        <a href="#">WEEK 8</a>
+        <a href="#">WEEK 9</a>
+        <a href="https://nanscrane.github.io/nans-workbook/journal.html">ResearchJournal</a>
+      </div>
+    <div class="background-container">
+        <h1 style="z-index: 2; font-size: 7em;"> WEEK 7 activities </h1>
+        <div class="background-image" style="z-index: 1;"></div>
+    </div>
+    <div class="picbox">
+       <h1 style="margin-top: 7%; margin-bottom:7%;">Learning Arduino</h1>
+       <ul class="accordion-container">
+        <li class="accordion-item" style="background-image: url(./Weixin\ Image_20240512135019.jpg);">
+            <p class="accordion-title"> Understanding plug-ins</p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./81SYbC8dJ7L._AC_SL1500_.jpg);">
+          </li>
+          <li class="accordion-item" style="background-image: url(./屏幕截图\ 2024-05-12\ 135235.png);">
+            <p class="accordion-title"> What is Arduino?</p>
+          </li>
+          <li class="accordion-item" style="background-image: url(./屏幕截图\ 2024-05-11\ 191502.png);">
+            <p class="accordion-title" style="color: black;"> control led with Manual Button</p>
+          </li>
+          <li class="accordion-item" style="background-image: url(./Weixin\ Image_20240512130515.jpg);">
+            <p class="accordion-title"> Twinkle</p>
+          </li>
+       </ul>
+       <div style="display: flex; width: 80vw; height: 10%; justify-content: center;align-items: center; margin-top: 2%;">
+        <p style="color: white;">In the seventh week, we learned that Arduino is a user-friendly electronic prototyping platform that allows us to link various compatible components together with coding to create different devices. By using the Arduino IDE on a computer, we can control the behavior of different components (such as making LED bulbs light up, triggering a passive buzzer, or displaying words on an I2C LCD 1602). The entire device is composed of circuits, so it's essential to pay attention to the positive and negative poles when connecting the circuits. We have experienced slight electric shocks caused by inserting the positive wire into the GND interface of the Arduino before, which could potentially damage the Arduino. Therefore, it's important to regularly check for reversed polarity and any issues with plugin and wire connections (for example, the longer end of an LED bulb is the positive pole). It's a very interesting experience!</p>
+        </div>
+    </div>
+    
+    <div class="act1" style="margin-top: 5%; ">
+        <h1 style="margin-bottom:3%;">LED Blink (on Arduino) </h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./blink.png" alt=""></div>
+            <div class="item"><P>This is a code example within the Arduino libraries, which, when executed, enables the built-in LED on the Arduino board to blink periodically.</P></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
+        <video controls width="1496" height="841.5">
+            <source src="./WeChat_20240512142834.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">LED Blink (LED components)</h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./led code.png" alt=""></div>
+            <div class="item"><p>By modifying the code, defining the LED component to be connected to the Arduino pin allows the LED on the breadboard to blink. Modifying the value inside the 'delay' function also adjusts the speed of the LED flashing.</p></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
+        <video controls width="1496" height="841.5">
+            <source src="./9ec135dda6d323bb992fdd2b60a2bac7.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Fast blink</h1>
+        <video controls width="1496" height="841.5">
+            <source src="./IMG_5138.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 style="margin-top: 5%; margin-bottom:3%;">Ultrasonic Buzzer</h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./buzzer.png" alt=""></div>
+            <div class="item"><p style="overflow: hidden; /* 当文本超出容器时隐藏 */
+                word-wrap: break-word;">In the second activity, we use the ultrasonic ranging module to detect if there are any objects in front of it. If an object is detected in front of it, the passive buzzer at the back will sound. I pondered over other possible uses for this device.Perhaps for visually impaired cats or dogs, a device equipped with a small computer and an ultrasonic buzzer could help them navigate obstacles effectively. (Please make sure to check if the buzzer is functioning properly; in our experiment, our first buzzer malfunctioned.)</p></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
+        <video controls width="1496" height="841.5" style="margin-bottom:3% ;">
+            <source src="./WeChat_20240512154228.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        // 获取元素
+        var act1 = document.querySelector('.act1');
+        
+        // 滚动事件监听器
+        window.addEventListener('scroll', function() {
+            // 获取页面滚动距离
+            var scrollPosition = window.scrollY;
+    
+            // 根据页面滚动距离设置 act1 的显示状态
+            if (scrollPosition > 400) { // 当页面滚动超过200像素时显示 act1
+                act1.style.opacity = '1';
+            } else { // 否则隐藏 act1
+                act1.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+
+</html>
