@@ -8,17 +8,43 @@
     <link rel="icon" type="image/x-icon" href="./dreambox.png">
     
 </head>
+<style>
+    .background-container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 
+.background-image {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 20s linear infinite;
+}
+
+@keyframes slideBackground {
+    0% { background-image: url('./1.jpg'); }
+    25% { background-image: url('./2.jpg'); }
+    50% { background-image: url('./3.jpg'); }
+    75% { background-image: url('./4.jpg'); }
+    100% { background-image: url('./5.jpg'); }
+}
+</style>
 <body>
     <div class="navbar" id="myNavbar">
-        <a href="#">Home</a>
-        <a href="#">WEEK 7</a>
-        <a href="#">WEEK 8</a>
-        <a href="#">WEEK 9</a>
-        <a href="https://nanscrane.github.io/nans-workbook/journal.html">ResearchJournal</a>
+        <a href="https://nanscrane.github.io/nans-workbook/homepage%202c">Home</a>
+        <a href="https://nanscrane.github.io/nans-workbook/WEEK%207">WEEK 7</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week8">WEEK 8</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week9">WEEK 9</a>
+        <a href="https://nanscrane.github.io/nans-workbook/journal.html">Research Journal</a>
       </div>
     <div class="background-container">
-        <h1 style="z-index: 2; font-size: 7em;"> WEEK 7 activities </h1>
+        <h1 style="z-index: 2; font-size: 7em;"> Week 7 Activities </h1>
         <div class="background-image" style="z-index: 1;"></div>
     </div>
     <div class="picbox">
@@ -36,11 +62,11 @@
             <p class="accordion-title" style="color: black;"> control led with Manual Button</p>
           </li>
           <li class="accordion-item" style="background-image: url(./Weixin\ Image_20240512130515.jpg);">
-            <p class="accordion-title"> Twinkle</p>
+            <p class="accordion-title"> Push-Button Led</p>
           </li>
        </ul>
        <div style="display: flex; width: 80vw; height: 10%; justify-content: center;align-items: center; margin-top: 2%;">
-        <p style="color: white;">In the seventh week, we learned that Arduino is a user-friendly electronic prototyping platform that allows us to link various compatible components together with coding to create different devices. By using the Arduino IDE on a computer, we can control the behavior of different components (such as making LED bulbs light up, triggering a passive buzzer, or displaying words on an I2C LCD 1602). The entire device is composed of circuits, so it's essential to pay attention to the positive and negative poles when connecting the circuits. We have experienced slight electric shocks caused by inserting the positive wire into the GND interface of the Arduino before, which could potentially damage the Arduino. Therefore, it's important to regularly check for reversed polarity and any issues with plugin and wire connections (for example, the longer end of an LED bulb is the positive pole). It's a very interesting experience!</p>
+        <p style="color: white;">In week 7, we learned that Arduino is a user-friendly electronic prototyping platform that allows us to link various compatible components together with coding to create different devices. By using the Arduino IDE on a computer, we can control the behavior of different components (such as making LED bulbs light up, triggering a passive buzzer, or displaying words on an I2C LCD 1602). The entire device is composed of circuits, so it's essential to pay attention to the positive and negative poles when connecting the circuits. We have experienced slight electric shocks caused by inserting the positive wire into the GND interface of the Arduino before, which could potentially damage the Arduino. Therefore, it's important to regularly check for reversed polarity and any issues with plugin and wire connections (for example, the longer end of an LED bulb is the positive pole). It's a very interesting experience!</p>
         </div>
     </div>
     
@@ -73,7 +99,7 @@
         <h1 style="margin-top: 5%; margin-bottom:3%;">Ultrasonic Buzzer</h1>
         <div class="codecontainer">
             <div class="item"><img src="./buzzer.png" alt=""></div>
-            <div class="item"><p style="overflow: hidden; /* 当文本超出容器时隐藏 */
+            <div class="item"><p style="overflow: hidden; 
                 word-wrap: break-word;">In the second activity, we use the ultrasonic ranging module to detect if there are any objects in front of it. If an object is detected in front of it, the passive buzzer at the back will sound. I pondered over other possible uses for this device.Perhaps for visually impaired cats or dogs, a device equipped with a small computer and an ultrasonic buzzer could help them navigate obstacles effectively. (Please make sure to check if the buzzer is functioning properly; in our experiment, our first buzzer malfunctioned.)</p></div>
         </div>
         <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
@@ -82,23 +108,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    <script>
-        // 获取元素
-        var act1 = document.querySelector('.act1');
-        
-        // 滚动事件监听器
-        window.addEventListener('scroll', function() {
-            // 获取页面滚动距离
-            var scrollPosition = window.scrollY;
     
-            // 根据页面滚动距离设置 act1 的显示状态
-            if (scrollPosition > 400) { // 当页面滚动超过200像素时显示 act1
-                act1.style.opacity = '1';
-            } else { // 否则隐藏 act1
-                act1.style.opacity = '0';
-            }
-        });
-    </script>
 </body>
 
 </html>
