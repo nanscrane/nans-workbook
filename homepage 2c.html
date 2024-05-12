@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week9</title>
+    <link rel="week7 stylesheet" href="week7 stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+    
+</head>
+<style>
+    .background-image {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 20s linear infinite;
+}
+
+@keyframes slideBackground {
+    0% { background-image: url('./1.jpg'); }
+    10% { background-image: url('./2.jpg'); }
+    20% { background-image: url('./3.jpg'); }
+    30% { background-image: url('./4.jpg'); }
+    40% { background-image: url('./5.jpg'); }
+    50% { background-image: url('./6.jpg'); }
+    60% { background-image: url('./7.jpg'); }
+    70% { background-image: url('./9.jpg'); }
+    80% { background-image: url('./10.png'); }
+    90% { background-image: url('./11.png'); }
+    100% { background-image: url('./1.jpg'); }
+}
+
+.accordion-item:hover::after {
+    background-color: rgba(0,0,0,0.5);
+}
+</style>
+
+<body>
+    
+    <div class="navbar" id="myNavbar">
+        <a href="#">Home</a>
+        <a href="https://nanscrane.github.io/nans-workbook/WEEK%207">WEEK 7</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week8">WEEK 8</a>
+        <a href="#">WEEK 9</a>
+        <a href="https://nanscrane.github.io/nans-workbook/journal.html">Research Journal</a>
+      </div>
+    <div class="background-container">
+        <h1 style="z-index: 2; font-size: 7em;text-transform: uppercase;"> Interactive Media Project 2C: <br>Physical Computing Workbook </h1>
+        <div class="background-image" style="z-index: 1;"></div>
+    </div>
+    <div class="picbox">
+       <h1 style="margin-top: 15%; margin-bottom:7%; text-transform: uppercase;">Chapter Selection</h1>
+       <ul class="accordion-container" >
+        <li class="accordion-item" style="background-image: url(./1.jpg);">
+            <p class="accordion-title"><a href="https://nanscrane.github.io/nans-workbook/WEEK%207" style="color: aliceblue; text-decoration: none; font-size: 2em;">WEEK 7</a></p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./7.jpg);">
+            <p class="accordion-title"><a href="https://nanscrane.github.io/nans-workbook/WEEK%207" style="color: aliceblue; text-decoration: none; font-size: 2em;">WEEK 8</a></p>
+          </li>
+          <li class="accordion-item" style="background-image: url(./11.png);">
+            <p class="accordion-title"><a href="https://nanscrane.github.io/nans-workbook/WEEK%207" style="color: aliceblue; text-decoration: none; font-size: 2em;">WEEK 9</a></p>
+          </li>
+          <li class="accordion-item" style="background-image: url(./project\ 2A.png);">
+            <p class="accordion-title"><a href="https://nanscrane.github.io/nans-workbook/30008.html" style="color: aliceblue; text-decoration: none; font-size: 2em;">PROJECT 2A</a></p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./2b.png);">
+            <p class="accordion-title"><a href="https://nanscrane.github.io/nans-workbook/sketch.html" style="color: aliceblue; text-decoration: none; font-size: 2em;">PROJECT 2B</a></p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./未标题-2.png);">
+            <p class="accordion-title"><a href="https://nevonprojects.com/gesture-control-bluetooth-speaker-arduino/" style="color: aliceblue; text-decoration: none; font-size: 2em; text-transform: uppercase;">Research Journal</a></p>
+        </li>
+       </ul>
+       <div style="display: flex; width: 80vw; height: 10%; justify-content: center;align-items: center; margin-top: 5%; margin-bottom: 8%;">
+        <p style="color: white;">Interactive Media Project is a comprehensive online workbook consisting of three parts: Project 2A (Web Design Workbook), Project 2B (Creative Coding Workbook), and Project 2C (Physical Computing Workbook). Each part encompasses workshop activities, post-class student experiments, and survey journals serving as references for the workbook. Here is Ruoxi Li, welcoming you to my workbook（dreambox）: the third part, Project 2C: Physical Computing Workbook.</p>
+        </div>
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week9</title>
+    <link rel="week7 stylesheet" href="week7 stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+    
+</head>
+<style>
+    .background-image {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 20s linear infinite;
+}
+
+@keyframes slideBackground {
+    0% { background-image: url('./10.png'); }
+    25% { background-image: url('./10.png'); }
+    50% { background-image: url('./10.png'); }
+    75% { background-image: url('./11.png'); }
+    100% { background-image: url('./11.png'); }
+}
+</style>
+<body>
+    <div class="navbar" id="myNavbar">
+        <a href="#">Home</a>
+        <a href="https://nanscrane.github.io/nans-workbook/WEEK%207">WEEK 7</a>
+        <a href="https://nanscrane.github.io/nans-workbook/week8">WEEK 8</a>
+        <a href="#">WEEK 9</a>
+        <a href="https://nanscrane.github.io/nans-workbook/journal.html">Research Journal</a>
+      </div>
+    <div class="background-container">
+        <h1 style="z-index: 2; font-size: 7em;"> Week 9 activities </h1>
+        <div class="background-image" style="z-index: 1;"></div>
+    </div>
+    <div class="picbox">
+       <h1 style="margin-top: 7%; margin-bottom:7%;">Idea and research of Arduino projects</h1>
+       <ul class="accordion-container" >
+        <li class="accordion-item" style="background-image: url(./猫猫项圈.png);">
+        </li>
+        <li class="accordion-item" style="background-image: url(./土豆电路.png);">
+          </li>
+          <li class="accordion-item" style="background-image: url(https://s2.loli.net/2024/05/11/nCelzUGa1g8LZAW.png);">
+            <p class="accordion-title" style="color: black;">Tenex</p>
+          </li>
+          <li class="accordion-item" style="background-image: url(./Arduino-Automatic-Irrigation-System.jpg);">
+            <p class="accordion-title"><a href="https://circuitdigest.com/microcontroller-projects/automatic-irrigation-system-using-arduino-uno" style="color: aliceblue; text-decoration: none;">Automatic Irrigation System</a></p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./bluetooth-gesture-speaker-web-main.jpg);">
+            <p class="accordion-title"><a href="https://nevonprojects.com/gesture-control-bluetooth-speaker-arduino/" style="color: aliceblue; text-decoration: none;">Gesture Control Bluetooth Speaker Arduino</a></p>
+        </li>
+       </ul>
+       <div style="display: flex; width: 80vw; height: 10%; justify-content: center;align-items: center; margin-top: 2%;">
+        <p style="color: white;">This week, we'll start with some sketches of my ideas. As a follow-up to the Week 7 activity, I've been thinking about extending the Week 7 Ultrasonic Buzzer activity, specifically by incorporating the Ultrasonic Ranging Module into a pet collar to help visually impaired animals avoid dangers on time. This collar would serve as a closed circuit with a ranging sensor and a buzzer; when the sensor detects obstacles ahead, the buzzer will sound, alerting the animals. The second image is an immature idea of mine, using a potato as part of the circuit (or maybe a battery?). The third image is a very cool example I found, a solid-state volumetric display called Tenex (details can be found in the research journal). The fourth one is an automatic plant irrigation system made by Rajes using Arduino, maintaining the optimal humidity level for plants with a humidity sensor. Finally, there's a gesture-controlled Bluetooth speaker made with Arduino. (For the fourth and fifth references, you can click on the description titles in the images to jump to the web pages for more information.)</p>
+        </div>
+    </div>
+    
+    <div class="act1" style="margin-top: 5%; ">
+        <h1 style="margin-bottom:3%;">Capacitive touch</h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./touch.png" alt=""></div>
+            <div class="item"><P>Capacitive touch is an activity that involves using the human body as part of a closed circuit. We touch the live wire (because our feet are in contact with the ground), attempting to complete the circuit using the human body and some conductive materials (such as metal). If given the chance next time, I might try using a potato as part of the circuit.</P></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Touch with hand</h1>
+        <video controls width="1496" height="841.5">
+            <source src="./touch.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Use metal as a medium for contact</h1>
+        <video controls width="1496" height="841.5" style="margin-bottom:3% ;">
+            <source src="./touch 2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+</body>
+
+</html>
