@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week8</title>
+    <link rel="week7 stylesheet" href="week7 stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+    
+</head>
+
+<body>
+    <div class="navbar" id="myNavbar">
+        <a href="#">Home</a>
+        <a href="https://nanscrane.github.io/nans-workbook/WEEK%207">WEEK 7</a>
+        <a href="#">WEEK 8</a>
+        <a href="#">WEEK 9</a>
+        <a href="https://nanscrane.github.io/nans-workbook/journal.html">ResearchJournal</a>
+      </div>
+    <div class="background-container">
+        <h1 style="z-index: 2; font-size: 7em;"> WEEK 8 activities </h1>
+        <div class="background-image" style="z-index: 1;"></div>
+    </div>
+    <div class="picbox">
+       <h1 style="margin-top: 7%; margin-bottom:7%;">Some good idea of using photoresistor & Servo</h1>
+       <ul class="accordion-container">
+        <li class="accordion-item" style="background-image: url(./电子宠物.jpg);">
+            <p class="accordion-title"> Electronic desk pet by Youchuxidenanhai</p>
+        </li>
+        <li class="accordion-item" style="background-image: url(./电子宠物2.jpg);">
+          </li>
+          <li class="accordion-item" style="background-image: url(./电子宠物3.jpg);">
+          </li>
+          <li class="accordion-item" style="background-image: url(./猫猫.png);">
+          </li>
+          <li class="accordion-item" style="background-image: url(./猫猫2.jpg);">
+            <p class="accordion-title" style="color: black;"> Sad cat by using photoresistor </p>
+          </li>
+       </ul>
+       <div style="display: flex; width: 80vw; height: 10%; justify-content: center;align-items: center; margin-top: 2%;">
+        <p style="color: white;">The first desktop electronic pet I found was an interesting project on the Chinese website platform Bilibili (https://www.bilibili.com/video/BV1Lz4y1c7QY/?spm_id_from=333.337.search-card.all.click&vd_source=252081340b8edfe3588d8e2865d9859a). This project, by a Chinese sophomore nicknamed "youchuxidenanhai," uses servo motors from an Arduino kit as the legs of the small robot and employs an LED matrix as its face. The idea is really fascinating! Be sure to copy the video link above to see this wonderful concept. The other two images are sketches of my final project. We will use a photoresistor to make this sad little cat immediately return to the house (we also considered using a servo to create a rolling axle, but it doesn't seem very practical at the moment), but using a photoresistor is definite. In our concept, this introverted little cat will want to go home as soon as it sees sunlight (a very reluctant personality to go outside), and we will also connect it to a buzzer. Once the photoresistor detects light beyond a certain threshold, the buzzer will sound.</p>
+        </div>
+    </div>
+    
+    <div class="act1" style="margin-top: 5%; ">
+        <h1 style="margin-bottom:3%;">Fish Playground</h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./fish playground.png" alt=""></div>
+            <div class="item"><P>The Fish Playground is a device that determines whether the servo's fins rotate based on the amount of light received by the photoresistor. (Actually, I'm curious why it's called Fish Playground; my guess is that the rotating fins resemble the tail of a goldfish.) During our testing, we experimented with increasing the minimum light intensity requirement to 1000 to see if the servomotor would continue to rotate. We also tried rotating the fins at different angles (such as 45 degrees, 90 degrees, or 360 degrees), but it seems that it can only rotate a maximum of 180 degrees, as it becomes less responsive beyond that angle.</P></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
+        <video controls width="1496" height="841.5">
+            <source src="./fish playground.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+        <h1 style="margin-top: 5%; margin-bottom:3%;">LED Matrix</h1>
+        <div class="codecontainer">
+            <div class="item"><img src="./led matrix.png" alt=""></div>
+            <div class="item"><p style="overflow: hidden; 
+                word-wrap: break-word;">The Led matrix activity involves drawing different patterns on an 8x8 LED board. We used coding from the ARDUINO_KITS_USERGUIDE_ALL_COMPONENTS_MANUAL to attempt to draw patterns on this LED display. Although the process was challenging (there were too many circuits to connect), we eventually succeeded. Each output hole of the ARDUINO corresponds to a column of lights on the LED matrix, allowing us to draw shapes by controlling whether the LEDs in this matrix are on or off. However, remember to check if your circuit is loose; in our experiment, the last column of this LED matrix didn't light up. We initially thought it was a code issue, but we later found out it was due to poor contact in the last column's circuit. Always remember to check your circuits regularly.</p></div>
+        </div>
+        <h1 style="margin-top: 2%; margin-bottom:2%;">Demo</h1>
+        <video controls width="1496" height="841.5" style="margin-bottom:3% ;">
+            <source src="./led matrix.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+</body>
+
+</html>
