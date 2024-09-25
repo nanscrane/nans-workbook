@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self protrait</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="workbook2b stylesheet" href="workbook2b stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+</head>
+<body>
+  <script>
+let pointSize = 120; 
+let angle = 0; 
+let myFont; 
+
+function preload() {
+  myFont = loadFont("Milky.ttf"); 
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight); 
+  background(0); 
+  fill(255);
+  textFont(myFont);
+  textSize(pointSize); 
+}
+
+function keyTyped() {
+  
+  translate(mouseX, mouseY); 
+  rotate(angle); 
+  
+  fill(255); 
+  textSize(pointSize); 
+  
+ 
+  text(key, 0, 0); 
+}
+
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    angle += PI / 5; 
+  }
+  if (keyCode === DOWN_ARROW) {
+    angle -= PI / 30; 
+  }
+  if (keyCode === LEFT_ARROW) {
+    pointSize -= 10; 
+  }
+  if (keyCode === RIGHT_ARROW) {
+    pointSize += 10; 
+  }
+  pointSize = constrain(pointSize, 10, 300); 
+}
+
+
+</script>
+</body>
+</html>
