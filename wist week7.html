@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIST week7 Monogram</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./dreambox.png">
+</head>
+<body>
+    <script>
+        
+var capture;
+
+function setup() {
+createCanvas(windowWidth, windowHeight);
+background(0,0,0);
+frameRate(1);
+}
+
+
+function draw() {
+    fill(random(256),random(256),random(256));
+    rect(width/5,height/4, 60,400,50);
+    noStroke();
+    rect(width/5.,height/4, 300,200,50);
+    noStroke();
+    rect(width/3,height/2.3, 60,225,50);
+    noStroke();
+    rect(width/3,height/1.62, 100,60,50);
+    noStroke();
+    fill(0);
+    rect(width/4.3,height/3.5, 180,125,30);
+    noStroke();
+    
+    fill(random(256),random(256),random(256));
+    rect(width/2.3,height/4, 300,400,60);
+    noStroke();
+
+    fill(0);
+    triangle(width / 2, height / 2.1, 
+           width / 2.4, height * 3 / 4, 
+           width /2.4, height/5,);
+    noStroke();
+
+    triangle(width / 1.8, height / 2.1, 
+           width / 1.57, height * 3 / 4, 
+           width /1.57, height/5,);
+    noStroke();
+
+    triangle(width / 1.9, height / 2.4,
+           width /1.7, height/5, 
+           width /2.2, height/5,);
+    noStroke();
+
+
+    triangle(width / 1.9, height / 1.9, 
+           width /1.68, height/1.3, 
+           width /2.2, height/1.3,); 
+    noStroke();
+
+
+    fill(random(256),random(256),random(256));
+    rect(width/1.5,height/4, 60,400,60);
+    noStroke();
+
+    rect(width/1.5,height/1.63, 300,60,60);
+    noStroke();
+    
+    fill(255,255,255);
+    circle( width/4.5, height/4.5, 50);
+    noStroke();
+    circle( width/3.7, height/4.5, 50);
+    noStroke();
+
+    fill(0,0,0);
+    circle( width/3.7, height/4.5, 20);
+    noStroke();
+    circle( width/4.5, height/4.5, 20);
+    noStroke(); 
+}
+
+    </script>
+</body>
