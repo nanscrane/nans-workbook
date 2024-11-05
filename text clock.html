@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Grid Clock with Clickable Links</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+    <script>
+        let font;
+        let clock;
+        let angle;
+        let nextAngle;
+        let links = [
+            { text: "TEXT CLOCK LIBRARY",url: "https://example2.com", x: 0, y: 0, color: 'white',},
+            { text: "", x: 0, y: 0, color: 'white' },
+            { text: "FOCUS TIMER", url: "https://example3.com", x: 0, y: 0, color: 'white' }
+        ];
+        let title = { text: "TEXT CLOCK LIBRARY", x: 0, y: 0, color: 'white', size: 36 };
+        let defaultColor = 'white';
+        let hoverColor = '#ffcc00';
+
+        function preload() {
+            font = loadFont('Barlow-Regular.ttf');
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            textFont(font);
+            textSize(50);
+            textAlign(CENTER, CENTER);
+            angle = radians(random(-20, 20));
+            nextAngle = 0;
+            clock = new Clock();
+            setLinkPositions();
+        }
+
+        function mousePressed() {
+            let x = mouseX - 50;
+            let y = mouseY - height / 2;
+            nextAngle = atan2(y, x);
+
+            // 检查点击是否在链接文字上
+            for (let link of links) {
+                if (isMouseOver(link)) {
+                    window.open(link.url, '_blank'); // 打开链接
+                }
+            }
+        }
+
+        function draw() {
+            let c = color(map(clock.sec, 0, 60, 0, 255), map(clock.min, 0, 60, 0, 255), map(clock.hr, 0, 24, 0, 255));
+            background(c);
+
+            // 左侧主时钟
+            push();
+            translate(50, height / 2);
+            rotate(angle);
+            if (angle > nextAngle) angle -= abs(angle - nextAngle) / 10;
+            else angle += abs(angle - nextAngle) / 10;
+            clock.display();
+            pop();
+
+            // 右侧镜像时钟
+            push();
+            translate(width - 50, height / 2);
+            scale(-1, 1);
+            rotate(-angle);
+            clock.display();
+            pop();
+
+            // 显示可点击的链接文字
+            displayLinks();
+        }
+
+        function setLinkPositions() {
+            let startY = height / 2 - 100;
+            for (let i = 0; i < links.length; i++) {
+                links[i].x = width / 2;
+                links[i].y = startY + i * 60;
+            }
+        }
+
+        function displayLinks() {
+            for (let link of links) {
+                if (isMouseOver(link)) {
+                    fill(hoverColor);
+                } else {
+                    fill(link.color);
+                }
+                text(link.text, link.x, link.y);
+            }
+        }
+
+        function isMouseOver(link) {
+            let tw = textWidth(link.text) / 2;
+            return mouseX > link.x - tw && mouseX < link.x + tw && mouseY > link.y - 20 && mouseY < link.y + 20;
+        }
+
+        class Clock {
+            constructor() {
+                this.mins = Array.from({ length: 60 }, (_, i) => i);
+                this.hrs = Array.from({ length: 24 }, (_, i) => i);
+                this.secs = Array.from({ length: 60 }, (_, i) => i);
+                this.update();
+            }
+
+            update() {
+                this.min = minute();
+                this.hr = hour();
+                this.sec = second();
+            }
+
+            display() {
+                this.update();
+
+                // 显示秒针
+                push();
+                rotate(-radians(this.sec * 6) - radians(6));
+                for (let i = 0; i < this.secs.length; i++) {
+                    rotate(radians(6));
+                    if (this.secs[i] === this.sec) fill(0);
+                    else fill(255);
+                    text(nf(this.secs[i], 2), 540, 0);
+                }
+                pop();
+
+                // 显示分针
+                push();
+                rotate(-radians(this.min * 6) - radians(6));
+                for (let i = 0; i < this.mins.length; i++) {
+                    rotate(radians(6));
+                    if (this.mins[i] === this.min) fill(0);
+                    else fill(255);
+                    text(nf(this.mins[i], 2), 470, 0);
+                }
+                pop();
+
+                // 显示时针
+                push();
+                rotate(-radians(this.hr * 15) - radians(15));
+                for (let i = 0; i < this.hrs.length; i++) {
+                    rotate(radians(15));
+                    if (this.hrs[i] === this.hr) fill(0);
+                    else fill(255);
+                    text(nf(this.hrs[i], 2), 400, 0);
+                }
+                pop();
+            }
+        }
+    </script>
+</body>
+</html>
+

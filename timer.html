@@ -1,0 +1,245 @@
+<!DOCTYPE html>   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        let font;
+        let vehicles = [];
+        let formattedTime = "00:00:00";
+        let prevSec = -1;
+        let timer = 0;
+        let counting = false;
+        let startTime;
+        let maxChangeForce = 0.1;
+        let hourInput, minuteInput, secondInput, button;
+        let randomTexts = []; // Store random texts
+        let fadeInSpeed = 1;  // 控制淡入速度（数字越大，淡入越快）
+        let fadeOutSpeed = 5; // 控制淡出速度（数字越大，淡出越快）
+
+        function preload() {
+            font = loadFont('aqua.ttf'); // Ensure font path is correct
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            textAlign(CENTER, CENTER);
+            textSize(48);
+
+            // Initialize timer text particles
+            updateText(formattedTime);
+
+            // Create input and button controls
+            hourInput = createInput("0").attribute("placeholder", "HOUR");
+            hourInput.position(width / 2 - 200, height / 2.1);
+
+            minuteInput = createInput("0").attribute("placeholder", "MIN");
+            minuteInput.position(width / 2 - 70, height / 2.1);
+
+            secondInput = createInput("0").attribute("placeholder", "SEC");
+            secondInput.position(width / 2 + 70, height / 2.1);
+
+            button = createButton("Start");
+            button.position(width / 2 - button.width / 2, height / 1.9 );
+            button.mousePressed(() => startTimer(hourInput, minuteInput, secondInput));
+        }
+
+        function draw() {
+            background(51);
+            textFont(font);
+
+            if (counting) {
+                let elapsed = int((millis() - startTime) / 1000);
+                let remainingTime = max(timer - elapsed, 0);
+
+                // Convert remaining time to hours, minutes, seconds
+                let hours = int(remainingTime / 3600);
+                let minutes = int((remainingTime % 3600) / 60);
+                let seconds = remainingTime % 60;
+                let timeText = nf(hours, 2) + ":" + nf(minutes, 2) + ":" + nf(seconds, 2);
+
+                // Update particle positions if time has changed
+                if (timeText !== formattedTime) {
+                    updateText(timeText);
+                    formattedTime = timeText;
+
+                    // Add new random text around the timer every second
+                    addRandomText(["FOCUS", "STAY UNDISTRACTED", "CALM DOWN"]);
+                }
+
+                // Display all timer particles
+                for (let v of vehicles) {
+                    v.behaviors();
+                    v.update();
+                    v.show();
+                }
+
+                // Display random floating texts
+                displayRandomTexts();
+
+                if (remainingTime <= 0) {
+                    counting = false;
+                    // Show input fields and button
+                    hourInput.show();
+                    minuteInput.show();
+                    secondInput.show();
+                    button.show();
+                    randomTexts = []; // Clear random texts
+                }
+            } else {
+                fill(255);
+                let floatOffset = sin(millis() / 500) * 10; // Floating text offset
+                text("Please enter the time you want to focus on", width / 2, height / 3 + floatOffset);
+            }
+        }
+
+        function startTimer(hourInput, minuteInput, secondInput) {
+            let hours = int(hourInput.value()) || 0;
+            let minutes = int(minuteInput.value()) || 0;
+            let seconds = int(secondInput.value()) || 0;
+
+            // Convert time to total seconds
+            timer = hours * 3600 + minutes * 60 + seconds;
+
+            if (timer > 0) {
+                counting = true;
+                startTime = millis();
+                formattedTime = "00:00:00";
+                updateText(formattedTime);
+
+                // Hide inputs and button
+                hourInput.hide();
+                minuteInput.hide();
+                secondInput.hide();
+                button.hide();
+            } else {
+                alert("Please enter a valid time.");
+            }
+        }
+
+        function updateText(newText) {
+            let bounds = font.textBounds(newText, 0, 0, 192);
+            let centerX = width / 2;
+            let centerY = height / 2;
+            let posx = centerX - 4*bounds.w / 2;
+            let posy = centerY
+
+            // Convert new text to points
+            let points = font.textToPoints(newText, posx, posy, 192, { sampleFactor: 0.1 });
+
+            if (points.length < vehicles.length) {
+                vehicles.splice(points.length);
+            } else if (points.length > vehicles.length) {
+                for (let i = vehicles.length; i < points.length; i++) {
+                    let v = new Vehicle(points[i % points.length].x, points[i % points.length].y);
+                    vehicles.push(v);
+                }
+            }
+
+            for (let i = 0; i < points.length; i++) {
+                vehicles[i].target.x = points[i].x;
+                vehicles[i].target.y = points[i].y;
+                let force = p5.Vector.random2D();
+                force.mult(maxChangeForce);
+                vehicles[i].applyForce(force);
+            }
+        }
+
+        function addRandomText(contents) {
+            let content = random(contents);
+            let angle = random(TWO_PI); // Random angle around the timer
+            let distance = random(500, 600); // Random distance from the timer center
+            let x = width / 2 + 1.25*cos(angle) * distance;
+            let y = height / 2 + sin(angle) * distance;
+            randomTexts.push({ text: content, x: x, y: y, opacity: 0, fadeIn: true });
+        }
+
+        function displayRandomTexts() {
+            for (let t of randomTexts) {
+                noStroke()
+                fill(255, 255, 255, t.opacity);
+                textSize(60);
+                text(t.text, t.x, t.y);
+
+                // Handle fading in and out
+                if (t.fadeIn) {
+            t.opacity += fadeInSpeed; // 使用定义的淡入速度
+            if (t.opacity >= 255) t.fadeIn = false;
+        } else {
+            t.opacity -= fadeOutSpeed; // 使用定义的淡出速度
+            if (t.opacity <= 0) {
+                randomTexts.splice(randomTexts.indexOf(t), 1); // 从数组中移除完全淡出的文字
+            }
+            }
+        }
+    }
+
+        class Vehicle {
+            constructor(x, y) {
+                this.pos = createVector(x, y);
+                this.target = createVector(x, y);
+                this.vel = p5.Vector.random2D();
+                this.acc = createVector();
+                this.maxSpeed = 5;
+                this.maxForce = 0.3;
+            }
+
+            applyForce(force) {
+                this.acc.add(force);
+            }
+
+            behaviors() {
+                let mouse = createVector(mouseX, mouseY);
+                let d = p5.Vector.dist(this.pos, mouse);
+
+                if (d < 50) {
+                    let flee = this.flee(mouse);
+                    flee.mult(5);
+                    this.applyForce(flee);
+                } else {
+                    let arrive = this.arrive(this.target);
+                    this.applyForce(arrive);
+                }
+            }
+
+            arrive(target) {
+                let desired = p5.Vector.sub(target, this.pos);
+                let d = desired.mag();
+                let speed = this.maxSpeed;
+                if (d < 100) {
+                    speed = map(d, 0, 100, 0, this.maxSpeed);
+                }
+                desired.setMag(speed);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(this.maxForce);
+                return steer;
+            }
+
+            flee(target) {
+                let desired = p5.Vector.sub(target, this.pos);
+                desired.setMag(this.maxSpeed);
+                desired.mult(-1);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(this.maxForce);
+                return steer;
+            }
+
+            update() {
+                this.vel.add(this.acc);
+                this.pos.add(this.vel);
+                this.acc.mult(0);
+            }
+
+            show() {
+                stroke(255);
+                strokeWeight(4);
+                point(this.pos.x, this.pos.y);
+            }
+        }
+    </script>
+</body>
+</html>
