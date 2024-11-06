@@ -1,0 +1,198 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Grid Clock</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let myGraphices = [];
+        let canvas;
+        
+        function setup() {
+            canvas = createCanvas(800, 800);
+            canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+            let offset = 0;
+            let x = offset;
+            let y = offset;
+            let d = width - offset * 2;
+            let minD = d / 5;
+            separateGrid(x, y, d, minD);
+        }
+
+        function windowResized() {
+            resizeCanvas(800, 800);
+            canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+        }
+
+        function separateGrid(x, y, d, minD) {
+            let sepNum = int(random(1, 3));
+            let w = d / sepNum;
+            let types = ["YEAR", "MONTH", "DAY", "HOUR", "MINUTE", "SECOND"];
+            for (let i = x; i < x + d - 1; i += w) {
+                for (let j = y; j < y + d - 1; j += w) {
+                    if (random(100) < 95 && d > minD) {
+                        separateGrid(i, j, w, minD);
+                    } else {
+                        let randomType = random(types);
+                        let myGraphics = new MyGraphics(i, j, w, w, "serif", 1 + random(3), randomType); // 设置不同的切换间隔
+                        myGraphices.push(myGraphics);
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            clear();
+            for (myGraphics of myGraphices) {
+                myGraphics.update();
+                myGraphics.draw();
+            }
+        }
+
+        class MyGraphics {
+            constructor(x, y, width, height, font, changeInterval, type) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.font = font;
+                this.changeInterval = changeInterval * 1000;
+                this.lastChangeTime = 0;
+                this.type = type;
+
+                this.firstChar = this.getRandomDateTime(this.type);
+                this.secondChar = this.getRandomDateTime(this.type);
+                
+                this.g1 = createGraphics(this.width, this.height);
+                this.g1.textSize(this.width / 3); // 调整字号
+                this.g1.textAlign(CENTER, CENTER); // 所有文字居中对齐
+                this.g1.fill(255); // 白色字体
+                this.directions = ["T", "D", "L", "R"];
+                this.currentDirection = random(this.directions);
+                this.easing = Easing.easeOutBounce;
+            }
+
+            getRandomDateTime(type) {
+                let date = new Date();
+                switch (type) {
+                    case "YEAR":
+                        return date.getFullYear().toString();
+                    case "MONTH":
+                        return (date.getMonth() + 1).toString().padStart(2, "0");
+                    case "DAY":
+                        return date.getDate().toString().padStart(2, "0");
+                    case "HOUR":
+                        return date.getHours().toString().padStart(2, "0");
+                    case "MINUTE":
+                        return date.getMinutes().toString().padStart(2, "0");
+                    case "SECOND":
+                        return date.getSeconds().toString().padStart(2, "0");
+                    default:
+                        return "N/A";
+                }
+            }
+
+            update() {
+                let currentTime = millis();
+                let elapsedTime = currentTime - this.lastChangeTime;
+                let t = (elapsedTime % this.changeInterval) / this.changeInterval;
+                let animationProgress = constrain(t, 0, 0.5) * 2;
+                let offsetX = 0;
+                let offsetY = 0;
+
+                if (elapsedTime >= this.changeInterval) {
+                    this.changeText();
+                    this.lastChangeTime = currentTime;
+                    elapsedTime = 0;
+                    t = 0;
+                    animationProgress = 0;
+                }
+
+                if (this.currentDirection === "T") {
+                    offsetY = -this.easing(animationProgress) * this.height;
+                    this.g1.clear();
+                    this.g1.text(this.firstChar, this.width / 2, this.height / 2 + offsetY);
+                    this.g1.text(
+                        this.secondChar,
+                        this.width / 2,
+                        this.height / 2 + offsetY + this.height
+                    );
+                } else if (this.currentDirection === "D") {
+                    offsetY = this.easing(animationProgress) * this.height;
+                    this.g1.clear();
+                    this.g1.text(this.firstChar, this.width / 2, this.height / 2 + offsetY);
+                    this.g1.text(
+                        this.secondChar,
+                        this.width / 2,
+                        this.height / 2 + offsetY - this.height
+                    );
+                } else if (this.currentDirection === "L") {
+                    offsetX = -this.easing(animationProgress) * this.width;
+                    this.g1.clear();
+                    this.g1.text(this.firstChar, this.width / 2 + offsetX, this.height / 2);
+                    this.g1.text(
+                        this.secondChar,
+                        this.width / 2 + offsetX + this.width,
+                        this.height / 2
+                    );
+                } else if (this.currentDirection === "R") {
+                    offsetX = this.easing(animationProgress) * this.width;
+                    this.g1.clear();
+                    this.g1.text(this.firstChar, this.width / 2 + offsetX, this.height / 2);
+                    this.g1.text(
+                        this.secondChar,
+                        this.width / 2 + offsetX - this.width,
+                        this.height / 2
+                    );
+                }
+            }
+
+            changeText() {
+                this.firstChar = this.secondChar;
+                this.secondChar = this.getRandomDateTime(this.type);
+
+                let newDirection;
+                do {
+                    newDirection = random(this.directions);
+                } while (newDirection === this.currentDirection);
+
+                this.currentDirection = newDirection;
+            }
+
+            draw() {
+                image(this.g1, this.x, this.y);
+            }
+        }
+
+        class Easing {
+            static easeOutBounce(x) {
+                const n1 = 7.5625;
+                const d1 = 2.75;
+                if (x < 1 / d1) {
+                    return n1 * x * x;
+                } else if (x < 2 / d1) {
+                    return n1 * (x -= 1.5 / d1) * x + 0.75;
+                } else if (x < 2.5 / d1) {
+                    return n1 * (x -= 2.25 / d1) * x + 0.9375;
+                } else {
+                    return n1 * (x -= 2.625 / d1) * x + 0.984375;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
