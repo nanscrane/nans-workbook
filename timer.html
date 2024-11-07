@@ -17,12 +17,12 @@
         let startTime;
         let maxChangeForce = 0.1;
         let hourInput, minuteInput, secondInput, button;
-        let randomTexts = []; // Store random texts
-        let fadeInSpeed = 1;  // 控制淡入速度（数字越大，淡入越快）
-        let fadeOutSpeed = 5; // 控制淡出速度（数字越大，淡出越快）
+        let randomTexts = []; 
+        let fadeInSpeed = 1;  
+        let fadeOutSpeed = 5; 
 
         function preload() {
-            font = loadFont('aqua.ttf'); // Ensure font path is correct
+            font = loadFont('aqua.ttf'); 
         }
 
         function setup() {
@@ -30,10 +30,10 @@
             textAlign(CENTER, CENTER);
             textSize(48);
 
-            // Initialize timer text particles
+           
             updateText(formattedTime);
 
-            // Create input and button controls
+          
             hourInput = createInput("0").attribute("placeholder", "HOUR");
             hourInput.position(width / 2 - 200, height / 2.1);
 
@@ -56,43 +56,42 @@
                 let elapsed = int((millis() - startTime) / 1000);
                 let remainingTime = max(timer - elapsed, 0);
 
-                // Convert remaining time to hours, minutes, seconds
+             
                 let hours = int(remainingTime / 3600);
                 let minutes = int((remainingTime % 3600) / 60);
                 let seconds = remainingTime % 60;
                 let timeText = nf(hours, 2) + ":" + nf(minutes, 2) + ":" + nf(seconds, 2);
 
-                // Update particle positions if time has changed
+              
                 if (timeText !== formattedTime) {
                     updateText(timeText);
                     formattedTime = timeText;
 
-                    // Add new random text around the timer every second
+                   
                     addRandomText(["FOCUS", "STAY UNDISTRACTED", "CALM DOWN"]);
                 }
 
-                // Display all timer particles
+               
                 for (let v of vehicles) {
                     v.behaviors();
                     v.update();
                     v.show();
                 }
 
-                // Display random floating texts
+        
                 displayRandomTexts();
 
                 if (remainingTime <= 0) {
                     counting = false;
-                    // Show input fields and button
                     hourInput.show();
                     minuteInput.show();
                     secondInput.show();
                     button.show();
-                    randomTexts = []; // Clear random texts
+                    randomTexts = []; 
                 }
             } else {
                 fill(255);
-                let floatOffset = sin(millis() / 500) * 10; // Floating text offset
+                let floatOffset = sin(millis() / 500) * 10; 
                 text("Please enter the time you want to focus on", width / 2, height / 3 + floatOffset);
             }
         }
@@ -102,7 +101,7 @@
             let minutes = int(minuteInput.value()) || 0;
             let seconds = int(secondInput.value()) || 0;
 
-            // Convert time to total seconds
+       
             timer = hours * 3600 + minutes * 60 + seconds;
 
             if (timer > 0) {
@@ -111,7 +110,7 @@
                 formattedTime = "00:00:00";
                 updateText(formattedTime);
 
-                // Hide inputs and button
+               
                 hourInput.hide();
                 minuteInput.hide();
                 secondInput.hide();
@@ -128,7 +127,7 @@
             let posx = centerX - 4*bounds.w / 2;
             let posy = centerY
 
-            // Convert new text to points
+            
             let points = font.textToPoints(newText, posx, posy, 192, { sampleFactor: 0.1 });
 
             if (points.length < vehicles.length) {
@@ -151,8 +150,8 @@
 
         function addRandomText(contents) {
             let content = random(contents);
-            let angle = random(TWO_PI); // Random angle around the timer
-            let distance = random(500, 600); // Random distance from the timer center
+            let angle = random(TWO_PI); 
+            let distance = random(500, 600); 
             let x = width / 2 + 1.25*cos(angle) * distance;
             let y = height / 2 + sin(angle) * distance;
             randomTexts.push({ text: content, x: x, y: y, opacity: 0, fadeIn: true });
@@ -165,14 +164,13 @@
                 textSize(60);
                 text(t.text, t.x, t.y);
 
-                // Handle fading in and out
                 if (t.fadeIn) {
-            t.opacity += fadeInSpeed; // 使用定义的淡入速度
+            t.opacity += fadeInSpeed; 
             if (t.opacity >= 255) t.fadeIn = false;
         } else {
-            t.opacity -= fadeOutSpeed; // 使用定义的淡出速度
+            t.opacity -= fadeOutSpeed; 
             if (t.opacity <= 0) {
-                randomTexts.splice(randomTexts.indexOf(t), 1); // 从数组中移除完全淡出的文字
+                randomTexts.splice(randomTexts.indexOf(t), 1); 
             }
             }
         }

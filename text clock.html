@@ -42,10 +42,9 @@
             let y = mouseY - height / 2;
             nextAngle = atan2(y, x);
 
-            // 检查点击是否在链接文字上
             for (let link of links) {
                 if (isMouseOver(link)) {
-                    window.open(link.url, '_blank'); // 打开链接
+                    window.open(link.url, '_blank'); 
                 }
             }
         }
@@ -54,7 +53,7 @@
             let c = color(map(clock.sec, 0, 60, 0, 255), map(clock.min, 0, 60, 0, 255), map(clock.hr, 0, 24, 0, 255));
             background(c);
 
-            // 左侧主时钟
+       
             push();
             translate(50, height / 2);
             rotate(angle);
@@ -63,7 +62,7 @@
             clock.display();
             pop();
 
-            // 右侧镜像时钟
+         
             push();
             translate(width - 50, height / 2);
             scale(-1, 1);
@@ -71,7 +70,7 @@
             clock.display();
             pop();
 
-            // 显示可点击的链接文字
+            
             displayLinks();
         }
 
@@ -116,7 +115,7 @@
             display() {
                 this.update();
 
-                // 显示秒针
+              
                 push();
                 rotate(-radians(this.sec * 6) - radians(6));
                 for (let i = 0; i < this.secs.length; i++) {
@@ -127,7 +126,6 @@
                 }
                 pop();
 
-                // 显示分针
                 push();
                 rotate(-radians(this.min * 6) - radians(6));
                 for (let i = 0; i < this.mins.length; i++) {
@@ -138,7 +136,7 @@
                 }
                 pop();
 
-                // 显示时针
+              
                 push();
                 rotate(-radians(this.hr * 15) - radians(15));
                 for (let i = 0; i < this.hrs.length; i++) {
